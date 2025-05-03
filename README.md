@@ -1,77 +1,54 @@
-Portfólio Raphaella Rodrigues
+# Portfólio Raphaella Rodrigues
 
-Repositório público do Portfólio Raphaella Rodrigues — uma Single‑Page Application que apresenta projetos, habilidades, certificados e informações de contato da arquiteta de soluções Raphaella Rodrigues.
+Repositório público do **Portfólio Raphaella Rodrigues** — uma Single‑Page Application que apresenta projetos, habilidades, certificados e informações de contato da arquiteta de soluções **Raphaella Rodrigues**.
 
-Desenvolvido e mantido por Lucas Moreira.Projeto público: sinta-se à vontade para clonar ou estudar, mas não receberá pull requests ou contribuições externas.
+> **Desenvolvido e mantido por Lucas Moreira.**
+> Projeto público: sinta-se à vontade para **clonar** ou **estudar**, mas **não receberá pull requests** ou contribuições externas.
 
-📸 Demonstração
+---
 
-Página
+## 📸 Demonstração
 
-Preview
+| Página                         | Preview             |
+| ------------------------------ | ------------------- |
+| Landing / Projetos em Destaque | *screenshot ou GIF* |
+| Página “Ver Todos”             | *screenshot ou GIF* |
+| Project Page (detalhes)        | *screenshot ou GIF* |
 
-Landing / Projetos em Destaque
+> Substitua as imagens de exemplo pelas suas capturas de tela ou GIFs após o build (`frontend`).
 
-screenshot ou GIF
+---
 
-Página “Ver Todos”
+## ✨ Funcionalidades
 
-screenshot ou GIF
+1. **Cards Interativos** (animações com Framer Motion)
 
-Project Page (detalhes)
+   * Clique no card → navegação para Project Page detalhada
+   * Botão **Ver Mais** → exibe lista de todos os projetos com **busca**, **filtros** (tags, stack, ano) e **ordenação** (data, complexidade, impacto)
+2. **Sobre Mim** — biografia, missão e valores
+3. **Habilidades & Certificados** — tech stack, soft skills, badges (Credly / Microsoft Learn). Filtros por categoria
+4. **Contato** — formulário de e‑mail (via API Laravel), validação server‑side e links para redes sociais
+5. **PWA Ready** — instalação no mobile / desktop e *offline fallback*
+6. **Acessibilidade (A11y) & i18n** — semântica, navegação por teclado e suporte a PT‑BR ↔ EN
+7. **Dark Mode** — configuração com Tailwind CSS e armazenamento em localStorage
 
-screenshot ou GIF
+---
 
-Substitua as imagens de exemplo pelas suas capturas de tela ou GIFs após o build (frontend).
+## 🛠️ Tech Stack & Ferramentas
 
-✨ Funcionalidades
+| Camada             | Tecnologias                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| **Front‑end**      | React 18 • Vite • Tailwind CSS v3 • React Router Dom 6 • Axios • Framer Motion                   |
+| **Back‑end**       | Laravel 11 (PHP 8.3) • Sanctum (API Token)                                                       |
+| **Banco de Dados** | MySQL 8                                                                                          |
+| **Dev Ops**        | Docker Compose • GitHub Actions (CI/CD) • ESLint + Prettier • Husky + lint‑staged • EditorConfig |
+| **Testes**         | PHPUnit • Pest PHP                                                                               |
 
-Cards Interativos (animações com Framer Motion)
+---
 
-Clique no card → navegação para Project Page detalhada
+## 🏗️ Estrutura de Pastas
 
-Botão Ver Mais → exibe lista de todos os projetos com busca, filtros (tags, stack, ano) e ordenação (data, complexidade, impacto)
-
-Sobre Mim — biografia, missão e valores
-
-Habilidades & Certificados — tech stack, soft skills, badges (Credly / Microsoft Learn). Filtros por categoria
-
-Contato — formulário de e‑mail (via API Laravel), validação server‑side e links para redes sociais
-
-PWA Ready — instalação no mobile / desktop e offline fallback
-
-Acessibilidade (A11y) & i18n — semântica, navegação por teclado e suporte a PT‑BR ↔ EN
-
-Dark Mode — configuração com Tailwind CSS e armazenamento em localStorage
-
-🛠️ Tech Stack & Ferramentas
-
-Camada
-
-Tecnologias
-
-Front‑end
-
-React 18 • Vite • Tailwind CSS v3 • React Router Dom 6 • Axios • Framer Motion
-
-Back‑end
-
-Laravel 11 (PHP 8.3) • Sanctum (API Token)
-
-Banco de Dados
-
-MySQL 8
-
-Dev Ops
-
-Docker Compose • GitHub Actions (CI/CD) • ESLint + Prettier • Husky + lint‑staged • EditorConfig
-
-Testes
-
-PHPUnit • Pest PHP
-
-🏗️ Estrutura de Pastas
-
+```text
 portfolio-raphaella/
 ├── .github/                # Workflows CI/CD
 │   └── workflows/
@@ -95,70 +72,76 @@ portfolio-raphaella/
 ├── docker-compose.yml      # Compose para DB e serviços auxiliares
 ├── README.md               # Este arquivo
 └── LICENSE
+```
 
-🚀 Guia de Instalação
+---
 
-Pré‑requisitos
+## 🚀 Guia de Instalação
 
-Node.js ≥ 16
+### Pré‑requisitos
 
-PHP 8.3
+* Node.js ≥ 16
+* PHP 8.3
+* Composer
+* MySQL 8
+* Docker (opcional)
 
-Composer
+### Passo a Passo
 
-MySQL 8
+1. **Clone o repositório**
 
-Docker (opcional)
+   ```bash
+   git clone https://github.com/seu-usuario/portfolio-raphaella.git
+   cd portfolio-raphaella
+   ```
 
-Passo a Passo
+2. **Configurar variáveis de ambiente**
 
-Clone o repositório
+   * Copie `backend/.env.example` para `backend/.env` e ajuste conexões DB, APP\_KEY e outras.
+   * Em `frontend/.env`, defina a URL base da API.
 
-git clone https://github.com/seu-usuario/portfolio-raphaella.git
-cd portfolio-raphaella
+3. **Rodar containers (opcional)**
 
-Configurar variáveis de ambiente
+   ```bash
+   docker-compose up -d mysql
+   ```
 
-Copie backend/.env.example para backend/.env e ajuste conexões DB, APP_KEY e outras.
+4. **Instalar dependências e iniciar backend**
 
-Em frontend/.env, defina a URL base da API.
+   ```bash
+   cd backend
+   composer install
+   php artisan key:generate
+   php artisan migrate --seed
+   php artisan serve --host=0.0.0.0 --port=8000
+   ```
 
-Rodar containers (opcional)
+5. **Instalar dependências e iniciar frontend**
 
-docker-compose up -d mysql
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
 
-Instalar dependências e iniciar backend
+A aplicação estará disponível em `http://localhost:3000` e a API em `http://localhost:8000`.
 
-cd backend
-composer install
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve --host=0.0.0.0 --port=8000
+---
 
-Instalar dependências e iniciar frontend
+## ⚙️ Scripts Úteis
 
-cd frontend
-npm install
-npm run dev
+* **Backend** (dentro de `backend/`):
 
-A aplicação estará disponível em http://localhost:3000 e a API em http://localhost:8000.
+  * `php artisan test` — executa suíte de testes
+  * `php artisan migrate` — executa migrations
+* **Frontend** (dentro de `frontend/`):
 
-⚙️ Scripts Úteis
+  * `npm run dev` — servidor de desenvolvimento
+  * `npm run build` — build de produção
+  * `npm run lint` — lint e formatação
 
-Backend (dentro de backend/):
+---
 
-php artisan test — executa suíte de testes
+## 📄 Licença
 
-php artisan migrate — executa migrations
-
-Frontend (dentro de frontend/):
-
-npm run dev — servidor de desenvolvimento
-
-npm run build — build de produção
-
-npm run lint — lint e formatação
-
-📄 Licença
-
-Este projeto está licenciado sob a MIT License. Consulte o arquivo LICENSE para mais detalhes.
+Este projeto está licenciado sob a **MIT License**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
