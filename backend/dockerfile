@@ -1,0 +1,25 @@
+# backend/Dockerfile
+FROM php:8.3-fpm
+
+# 1) Dependências de sistema
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev
+
+# 2) Extensões PHP
+RUN docker-php-ext-install pdo_mysql zip
+
+# 3) Composer (usamos a imagem oficial para copiar o binário)
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# 4) Definir diretório de trabalho e copiar source
+WORKDIR /var/www
+COPY . .
+
+# 5) Instalar dependências PHP
+RUN composer install --no-interaction --optimize-autoloader
+
+# 6) Expor porta e comando padrão
+EXPOSE 8000
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
