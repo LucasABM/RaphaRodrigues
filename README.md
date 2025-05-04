@@ -195,10 +195,12 @@ Este projeto é de código aberto disponível para fins educacionais e de refer�
 ## 📞 Contato
 
 **Desenvolvedor:**
-Lucas
-- GitHub: [github.com/seu-usuario](https://github.com/seu-usuario)
+Lucas Moreira
+- GitHub: [github.com/LucasABM](https://github.com/LucasABM)
+- LinkedIn: [linkedin.com/in/lucasabmoreira](https://www.linkedin.com/in/lucasabmoreira/)
+- Email: lucasabmoreira@gmail.com
 
 **Portfólio de:**
 Raphaella Rodrigues
-- Email: raphaella@email.com
-- LinkedIn: [linkedin.com/in/raphaellarodrigues](https://linkedin.com/in/raphaellarodrigues)
+- Email: santosraphaellar@gmail.com
+- LinkedIn: [linkedin.com/in/raphaella-rodrigues-santos](https://www.linkedin.com/in/raphaella-rodrigues-santos/)
