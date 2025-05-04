@@ -1,147 +1,204 @@
-# Portfólio Raphaella Rodrigues
+# Portfólio de Arquitetura de Soluções - Raphaella Rodrigues
 
-Repositório público do **Portfólio Raphaella Rodrigues** — uma Single‑Page Application que apresenta projetos, habilidades, certificados e informações de contato da arquiteta de soluções **Raphaella Rodrigues**.
+![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![Versão](https://img.shields.io/badge/Versão-1.0.0-blue)
+![Propósito](https://img.shields.io/badge/Propósito-Educacional-green)
 
-> **Desenvolvido e mantido por Lucas Moreira.**
-> Projeto público: sinta-se à vontade para **clonar** ou **estudar**, mas **não receberá pull requests** ou contribuições externas.
+## 📋 Visão Geral
 
----
+Plataforma web para apresentação do portfólio profissional de Raphaella Rodrigues como Arquiteta de Soluções. O site exibe projetos em formato de cards interativos, permitindo visualização detalhada e buscas avançadas com filtros e ordenações.
 
-## 📸 Demonstração
+## ✨ Funcionalidades Principais
 
-| Página                         | Preview             |
-| ------------------------------ | ------------------- |
-| Landing / Projetos em Destaque | *screenshot ou GIF* |
-| Página “Ver Todos”             | *screenshot ou GIF* |
-| Project Page (detalhes)        | *screenshot ou GIF* |
+- **Página Inicial**: Apresentação geral e cards destacados dos projetos principais
+- **Catálogo de Projetos**: Sistema de cards interativos com preview de informações
+- **Visualizador de Projetos**: Páginas individuais com detalhamento completo de cada projeto
+- **Sistema de Busca**: Interface com filtros avançados e ordenação personalizada
+- **Seções Informativas**:
+  - Sobre Mim: Trajetória profissional e informações pessoais
+  - Habilidades: Competências técnicas e soft skills
+  - Certificados: Qualificações e certificações obtidas
+  - Contato: Formulário e informações para comunicação
 
-> Substitua as imagens de exemplo pelas suas capturas de tela ou GIFs após o build (`frontend`).
+## 🛠️ Tecnologias Utilizadas
 
----
+### Frontend
+- **React.js**: Biblioteca para construção da interface
+- **Tailwind CSS**: Framework para estilização com classes utilitárias
+- **React Router**: Navegação entre páginas
+- **Axios**: Requisições HTTP para a API
 
-## ✨ Funcionalidades
+### Backend
+- **PHP 8+**: Linguagem de programação
+- **Laravel**: Framework para desenvolvimento do backend
+- **MySQL**: Sistema de gerenciamento de banco de dados
+- **RESTful API**: Padrão de comunicação entre frontend e backend
 
-1. **Cards Interativos** (animações com Framer Motion)
+### DevOps
+- **Git/GitHub**: Controle de versão e hospedagem do código
+- **Docker**: Containerização (opcional)
+- **CI/CD**: Integração e entrega contínuas (a definir)
 
-   * Clique no card → navegação para Project Page detalhada
-   * Botão **Ver Mais** → exibe lista de todos os projetos com **busca**, **filtros** (tags, stack, ano) e **ordenação** (data, complexidade, impacto)
-2. **Sobre Mim** — biografia, missão e valores
-3. **Habilidades & Certificados** — tech stack, soft skills, badges (Credly / Microsoft Learn). Filtros por categoria
-4. **Contato** — formulário de e‑mail (via API Laravel), validação server‑side e links para redes sociais
-5. **PWA Ready** — instalação no mobile / desktop e *offline fallback*
-6. **Acessibilidade (A11y) & i18n** — semântica, navegação por teclado e suporte a PT‑BR ↔ EN
-7. **Dark Mode** — configuração com Tailwind CSS e armazenamento em localStorage
+## 🚀 Instalação e Execução
 
----
+### Pré-requisitos
+- Node.js (v16 ou superior)
+- PHP 8.0 ou superior
+- Composer
+- MySQL
+- Git
 
-## 🛠️ Tech Stack & Ferramentas
+### Instalação (Frontend)
 
-| Camada             | Tecnologias                                                                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------ |
-| **Front‑end**      | React 18 • Vite • Tailwind CSS v3 • React Router Dom 6 • Axios • Framer Motion                   |
-| **Back‑end**       | Laravel 11 (PHP 8.3) • Sanctum (API Token)                                                       |
-| **Banco de Dados** | MySQL 8                                                                                          |
-| **Dev Ops**        | Docker Compose • GitHub Actions (CI/CD) • ESLint + Prettier • Husky + lint‑staged • EditorConfig |
-| **Testes**         | PHPUnit • Pest PHP                                                                               |
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/portfolio-raphaella.git
 
----
+# Acesse o diretório do frontend
+cd portfolio-raphaella/frontend
 
-## 🏗️ Estrutura de Pastas
+# Instale as dependências
+npm install
 
-```text
-portfolio-raphaella/
-├── .github/                # Workflows CI/CD
-│   └── workflows/
-├── backend/                # API Laravel
-│   ├── app/
-│   ├── config/
-│   ├── database/
-│   ├── public/
-│   ├── resources/
-│   ├── routes/
-│   └── tests/
-├── frontend/               # SPA React + Tailwind CSS
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/       # chamadas à API
-│   │   ├── hooks/
-│   │   └── styles/
-│   └── tests/
-├── docker-compose.yml      # Compose para DB e serviços auxiliares
-├── README.md               # Este arquivo
-└── LICENSE
+# Inicie o servidor de desenvolvimento
+npm run dev
 ```
 
----
+### Instalação (Backend)
 
-## 🚀 Guia de Instalação
+```bash
+# Acesse o diretório do backend
+cd ../backend
 
-### Pré‑requisitos
+# Instale as dependências PHP
+composer install
 
-* Node.js ≥ 16
-* PHP 8.3
-* Composer
-* MySQL 8
-* Docker (opcional)
+# Configure o ambiente
+cp .env.example .env
+php artisan key:generate
 
-### Passo a Passo
+# Configure seu banco de dados no arquivo .env
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=portfolio_db
+# DB_USERNAME=root
+# DB_PASSWORD=
 
-1. **Clone o repositório**
+# Execute as migrações
+php artisan migrate
 
-   ```bash
-   git clone https://github.com/seu-usuario/portfolio-raphaella.git
-   cd portfolio-raphaella
-   ```
+# Popule o banco com dados iniciais (opcional)
+php artisan db:seed
 
-2. **Configurar variáveis de ambiente**
+# Inicie o servidor
+php artisan serve
+```
 
-   * Copie `backend/.env.example` para `backend/.env` e ajuste conexões DB, APP\_KEY e outras.
-   * Em `frontend/.env`, defina a URL base da API.
+## 📊 Estrutura do Banco de Dados
 
-3. **Rodar containers (opcional)**
+### Tabelas Principais
+- **users**: Administração do sistema
+- **projects**: Projetos do portfólio
+- **categories**: Categorias para classificação de projetos
+- **skills**: Habilidades e competências
+- **certificates**: Certificados e qualificações
+- **contacts**: Mensagens recebidas pelo formulário de contato
 
-   ```bash
-   docker-compose up -d mysql
-   ```
+## 📝 Arquitetura da Aplicação
 
-4. **Instalar dependências e iniciar backend**
+### Frontend
+```
+frontend/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── common/
+│   │   ├── layout/
+│   │   └── projects/
+│   ├── context/
+│   ├── hooks/
+│   ├── pages/
+│   ├── services/
+│   ├── styles/
+│   └── utils/
+├── package.json
+└── tailwind.config.js
+```
 
-   ```bash
-   cd backend
-   composer install
-   php artisan key:generate
-   php artisan migrate --seed
-   php artisan serve --host=0.0.0.0 --port=8000
-   ```
+### Backend
+```
+backend/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   └── Middleware/
+│   ├── Models/
+│   └── Services/
+├── config/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── routes/
+│   └── api.php
+└── composer.json
+```
 
-5. **Instalar dependências e iniciar frontend**
+## 🧪 Testes
 
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+```bash
+# Execute testes no frontend
+cd frontend
+npm test
 
-A aplicação estará disponível em `http://localhost:3000` e a API em `http://localhost:8000`.
+# Execute testes no backend
+cd backend
+php artisan test
+```
 
----
+## 📈 Roadmap de Desenvolvimento
 
-## ⚙️ Scripts Úteis
+### Fase 1 - MVP
+- [x] Estruturação do projeto
+- [ ] Implementação do CRUD básico de projetos
+- [ ] Design e layout responsivo das páginas principais
+- [ ] Implementação da autenticação de administrador
 
-* **Backend** (dentro de `backend/`):
+### Fase 2 - Aprimoramento
+- [ ] Sistema avançado de filtros e busca
+- [ ] Melhorias de UX/UI
+- [ ] Otimização de performance
+- [ ] Implementação de analytics
 
-  * `php artisan test` — executa suíte de testes
-  * `php artisan migrate` — executa migrations
-* **Frontend** (dentro de `frontend/`):
+### Fase 3 - Expansão
+- [ ] Multilingue (PT-BR/EN)
+- [ ] Tema claro/escuro
+- [ ] Modo de apresentação para reuniões
+- [ ] Integração com redes sociais
 
-  * `npm run dev` — servidor de desenvolvimento
-  * `npm run build` — build de produção
-  * `npm run lint` — lint e formatação
+## 📚 Uso e Referência
 
----
+Este projeto foi desenvolvido por Lucas para sua esposa Raphaella Rodrigues.
+
+O código está disponível para estudo e referência. Sinta-se à vontade para:
+- Analisar a estrutura e implementações
+- Utilizar trechos como referência para seus próprios projetos
+- Adaptar a ideia para outros portfólios profissionais
+
+Não são aceitas contribuições externas ao projeto neste momento.
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a **MIT License**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto é de código aberto disponível para fins educacionais e de referência. Você pode visualizar, estudar e adaptar partes do código para seu aprendizado pessoal, mas os direitos autorais pertencem ao desenvolvedor (Lucas).
+
+## 📞 Contato
+
+**Desenvolvedor:**
+Lucas
+- GitHub: [github.com/seu-usuario](https://github.com/seu-usuario)
+
+**Portfólio de:**
+Raphaella Rodrigues
+- Email: raphaella@email.com
+- LinkedIn: [linkedin.com/in/raphaellarodrigues](https://linkedin.com/in/raphaellarodrigues)
